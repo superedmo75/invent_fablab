@@ -1,0 +1,99 @@
+/* Estilo basado en el logo: monocromo, geométrico, letras espaciadas */
+:root {
+  --bg: #ffffff;
+  --surface: #f5f5f4;
+  --text: #111111;
+  --muted: #555555;
+  --line: #111111;
+  --soft-line: #dddddd;
+  --invert: #111111;
+  --invert-text: #ffffff;
+  --logo-filter: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e0e0e;
+    --surface: #181818;
+    --text: #f2f2f2;
+    --muted: #a8a8a8;
+    --line: #f2f2f2;
+    --soft-line: #2c2c2c;
+    --invert: #f2f2f2;
+    --invert-text: #0e0e0e;
+    --logo-filter: invert(1);
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.65 "Montserrat", system-ui, sans-serif;
+}
+a { color: var(--text); text-underline-offset: 3px; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+
+/* Cabecera */
+.top { border-bottom: 1px solid var(--soft-line); }
+.top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 48px; height: auto; filter: var(--logo-filter); }
+.brand span { font-weight: 600; letter-spacing: .35em; text-transform: uppercase; font-size: .9rem; }
+nav { display: flex; gap: 22px; flex-wrap: wrap; }
+nav a { text-decoration: none; text-transform: uppercase; letter-spacing: .18em; font-size: .75rem; color: var(--muted); }
+nav a:hover { color: var(--text); }
+
+/* Portada */
+.hero { padding: 64px 0 48px; }
+.hero-in { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+.hero-logo { width: 100%; max-width: 320px; justify-self: center; filter: var(--logo-filter); }
+.eyebrow { text-transform: uppercase; letter-spacing: .3em; font-size: .75rem; font-weight: 600; margin: 0 0 14px; }
+h1 { font-weight: 700; font-size: clamp(1.9rem, 4.6vw, 2.9rem); line-height: 1.15; margin: 0 0 18px; }
+h2 {
+  font-weight: 600; text-transform: uppercase; letter-spacing: .3em; font-size: 1rem;
+  margin: 64px 0 24px; display: flex; align-items: center; gap: 16px;
+}
+h2::after { content: ""; flex: 1; height: 1px; background: var(--soft-line); }
+h3 { margin: 0 0 6px; font-size: 1.05rem; font-weight: 700; }
+.lead { font-size: 1.1rem; color: var(--muted); max-width: 56ch; margin: 0 0 28px; }
+.btn {
+  display: inline-block; background: var(--invert); color: var(--invert-text);
+  padding: 13px 26px; border-radius: 999px; text-decoration: none;
+  text-transform: uppercase; letter-spacing: .2em; font-size: .8rem; font-weight: 600;
+}
+
+/* Servicio */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.grid article { border: 1.5px solid var(--line); border-radius: 18px; padding: 22px; }
+.grid article .dot {
+  width: 34px; height: 34px; border-radius: 50%; background: var(--invert); color: var(--invert-text);
+  display: grid; place-items: center; font-weight: 700; font-size: .85rem; margin-bottom: 14px;
+}
+.grid p, .note, .contact p { color: var(--muted); margin: 0; }
+
+/* Pasos */
+.steps { list-style: none; padding: 0; margin: 0 0 18px; counter-reset: paso; }
+.steps li { counter-increment: paso; display: grid; grid-template-columns: 44px 1fr; gap: 14px; margin-bottom: 16px; align-items: start; }
+.steps li::before {
+  content: counter(paso); width: 44px; height: 44px; border-radius: 50%;
+  border: 1.5px solid var(--line); display: grid; place-items: center; font-weight: 700;
+}
+
+/* Contacto */
+.contact { background: var(--surface); border-radius: 24px; padding: 8px 24px 24px; margin-top: 64px; }
+.contact h2 { margin-top: 24px; }
+.contact ul { list-style: none; padding: 0; margin: 16px 0 0; }
+.contact li { padding: 6px 0; border-bottom: 1px solid var(--soft-line); }
+
+/* Pie */
+.foot { border-top: 1px solid var(--soft-line); margin-top: 72px; padding: 28px 0; color: var(--muted); font-size: .85rem; }
+.foot p { margin: 4px 0; }
+
+/* Páginas legales */
+.legal h1 { font-size: 1.9rem; margin-top: 48px; }
+.legal h2 { font-size: .9rem; margin: 36px 0 10px; }
+
+@media (max-width: 720px) {
+  .hero-in { grid-template-columns: 1fr; }
+  .hero-logo { max-width: 200px; grid-row: 1; }
+}
