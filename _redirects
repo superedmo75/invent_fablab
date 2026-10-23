@@ -1,0 +1,4 @@
+# El panel del chatbot vive en el sitio chatbot-empresas de Netlify; aquí se sirve bajo /chatbot.
+/chatbot     /chatbot/panel/   301
+/chatbot/    /chatbot/panel/   301
+/chatbot/*   https://chatbot-empresas.netlify.app/:splat   200
